@@ -43,3 +43,21 @@
 - git rm -r +nom du  dossier = selectionner undossier + les fichiers à l'intérieur
 - git commit -m " "
 - git push = dossier supr
+
+# Relier son dépot local et github
+- retrouver le dossier en local et faire git init
+- git add --all
+- git  commit -m ""
+- git remote add origin + url = faire le lien
+- git push  -u origin master = envoyer les fichiers
+
+# Utiliser VCS avec webstorm
+
+- changer le fichier dans github
+- changer notre fichier en manuel
+- faire un vcs + git + commit files et cocher le commit
+- ensuite faire git + push 
+- faire merge jusqu'à voir les 3 tableaux
+- choisir dans le tableau du milieux ce qu'on veut pour le fichier final 
+- faire apply
+- finir avec git + push
