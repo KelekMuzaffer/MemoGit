@@ -62,3 +62,33 @@
 - choisir dans le tableau du milieux ce qu'on veut pour le fichier final 
 - faire apply
 - finir avec git + push
+
+# Creer une branche avec issue
+
+ - creer une issue sur github
+ - git branch + nom de la branche = une nouvelle branche
+ - du coup on a master et la nouvelle branche
+ - travailler sur la branche git checkout + nom de la branche
+ - git add +nom du fichier
+ - git commit -m ""
+ - git push --set-upstream origin +nom de la branche
+ - sur github rafraichir + faire pull request
+ - faire fixes #+nom de l'issue
+ - valider + suprimmer issue sur github directement
+ - suprimmer la branche sur git en local = git branch -d + nom de la branch
+ 
+ # Conflit pendant le push
+  
+  - Sa veut dire que la version du fichier qu'on a n'est pas à jour en local
+  - donc mettre à jour notre local (master) et le comparer à notre branche où on a modif le fichier
+  - faire la modif en manuel sur le fichier webstorm
+  - début de la procédure
+  - git switch master = revenir sur la branche master
+  - git pull = mettre à jour la branche master
+  - git switch sur la branche = on revient sur nos modif
+  - git rebase master = on compare le fichier master à notre fichier de la branche
+  - faire nos modif sur webstorm exemple
+  - git add +nom du fichier
+  - git rebase --continue
+  - git push --force
+  - allez sur github et pas de conflit mtn
