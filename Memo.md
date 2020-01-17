@@ -13,12 +13,14 @@
 # Faire un tag sur un commit juste après le commit 
 - git tag -a + le nom du tag ex : v1.0 + -m " ma version v1.0" = creer un tag pour un commit
 - git show v1.0 = montre ce commit
-- git push origin v1.0 = envoie que ce commit
-- git push origin --tags = envoie tous les tags
 
 # Faire un tag sur un commit précis
 - git log = voir les commits et choisir le numero du commit à tager
 - git tag +le nom du tag +le num du commit
+
+# Envoyer ses tags sur GitHub
+- git push origin v1.0 = envoie que ce commit
+- git push origin --tags = envoie tous les tags
 
 # Revenir sur une version antérieur et à la version actuel
 - git checkout + numero commit/nom du tag = on revient temporairement à la version qu'on à choisit
@@ -36,3 +38,8 @@
 - faire git add --all = selectionner les fichiers supprimer
 - faire git commit -m " j'ai supprimer des fichiers"
 - faire git push = met à jours github
+
+# Supprimer un dossier et ce qu'il y a dedans
+- git rm -r +nom du  dossier = selectionner undossier + les fichiers à l'intérieur
+- git commit -m " "
+- git push = dossier supr
