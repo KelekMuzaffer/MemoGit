@@ -53,6 +53,7 @@
 
 # Utiliser VCS avec webstorm
 
+- ouvrir le bon project à modifier dans file new project
 - changer le fichier dans github
 - changer notre fichier en manuel
 - faire un vcs + git + commit files et cocher le commit
