@@ -1,3 +1,47 @@
+#### Example coter mep/client :
+- Pour push le travail effectuer dans sa branch
+   - git checkout le_nom_de_sa_branch
+   - git add . ou selectionner les fichiers 
+   - git commit -m ""
+   - git push origin develop
+   
+- Pour mettre à jour la branch develop
+   - cd mep/client
+   - git checkout develop
+   - git stash si besoin ( pas faire de commit juste pour cette opération)
+   - git pull 
+   - git checkout le_nom_de_sa_branch 
+   - git stash pop (pour récup son taff)
+   
+- Pour mettre à jour sa branch par rapport à develop
+   - git stash
+   - git checkout le_nom_de_sa_branch
+   - git pull origin develop
+   - resoudre conflit si il y en a dans VCS/Git/ResolveConflict
+   - git stash pop
+   
+#### Example coter mep/api :
+
+- Pour mettre à jour la branch api
+   - cd mep/api
+   - git checkout develop
+   - git pull 
+   
+- Mettre à jour la bdd avec les fixtures
+   - Supprimer toute les tables dans Oracle Sql server : MEP_SIR.sql, rajouter le code suivant dans la feuille de calcul SQL puis cliquez sur la fleche verte pour lancez la commande
+     - begin
+        for i in (select * from tabs) loop
+        execute immediate ('drop table ' || i.table_name || ' cascade constraints');
+        end loop;
+        end; 
+    - Revenir sur son projet : cd mep/api branch develop
+      - sudo docker-compose exec api php bin/console doctrine:schema:update --force
+      - Commenter dans `api/src/Entity/Etablissements.php` la propriété `$aspPhyss` (~ l.1072) puis passer cette commande :
+      - sudo docker-compose exec api php bin/console doctrine:fixture:load
+      - Ecrire yes quand on le demande 
+      - Décommenter la propriété `$aspPhyss`.
+   
+   
 # MemoGit
 
 - git log = voir tous les commits
