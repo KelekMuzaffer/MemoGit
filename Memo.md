@@ -13,6 +13,9 @@
    - git checkout le_nom_de_sa_branch 
    - git stash pop (pour récup son taff)
    
+   - git merge --abort : permet d'annuler les merges si on ne les veut pas faire ( très déconseiller)
+   - commande à faire en dernière solution pour maj sa branch develop et effacer tous son travail : git reset --hard origin/develop
+   
 - Pour mettre à jour sa branch par rapport à develop
    - git stash
    - git checkout le_nom_de_sa_branch
