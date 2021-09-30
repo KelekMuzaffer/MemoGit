@@ -1,0 +1,74 @@
+- git checkout master
+- git pull
+- git checkout - (= raccourcie pour revenir sur la branch précédente)
+- git rebase master
+************ Si conflict auto-merged failed *********
+Bien lire le reste pour bien comprendre les étapes à réaliser pour résoudre un conflit.
+ Exemple :
+ 
+ First, rewinding head to replay your work on top of it...
+Applying: feat: add missing mandatory materiel
+Using index info to reconstruct a base tree...
+M       config/routes.yaml
+M       src/Controller/TechMaterielsController.php
+M       src/Form/TechMaterielAddType.php
+M       src/Service/SirApi/SirApiService.php
+M       src/Service/SirApi/SirApiServiceInterface.php
+M       translations/messages.fr.yaml
+Falling back to patching base and 3-way merge...
+Auto-merging translations/messages.fr.yaml
+CONFLICT (content): Merge conflict in translations/messages.fr.yaml
+Auto-merging src/Service/SirApi/SirApiServiceInterface.php
+Auto-merging src/Service/SirApi/SirApiService.php
+Auto-merging src/Form/TechMaterielAddType.php
+CONFLICT (content): Merge conflict in src/Form/TechMaterielAddType.php
+Auto-merging src/Controller/TechMaterielsController.php
+Auto-merging config/routes.yaml
+error: Failed to merge in the changes.
+Patch failed at 0001 feat: add missing mandatory materiel
+hint: Use 'git am --show-current-patch' to see the failed patch
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+
+ 
+- les fichiers failed seront noté dans le terminal 
+- allez dans chacun des fichiers pour résoudre les conflicts 
+- Explication :
+
+HEAD = représente la branch master
+<<<<<<< HEAD
+  Modification présente dans la branch master 
+=======
+  Ligne de code présente dans ma branch
+>>>>>>> feat: add missing mandatory materiel
+
+
+Exemple : 
+
+<<<<<<< HEAD
+                    'label' => 'tech_materiels.add.option',
+                    'required' => false
+                ])
+=======
+                'label' => 'tech_materiels.add.option',
+            ])
+>>>>>>> feat: add missing mandatory materiel
+
+Action réaliser (je garde ici le code que j'ai envie, mieux vaut garder le code présent dans master par défaut) :
+  - Ici je supprimer à la main <<<<HEAD , ===== , >>>> feat: et le code que je veux pas garder. Du coup il me reste le code de master
+  
+  'label' => 'tech_materiels.add.option',
+                    'required' => false
+                ])
+                
+- git status
+  - on doit avoir un message : rebase in progress, dans le git status
+  Explication quand il y a un conflict auto-merge faile lors d'un rebase master, le rebase reste en attente de fix les conflicts, 
+  d'ailleur c'est ecrit dans le terminal cf: exemple git rebase master plus haut.
+  Une fois fix faut add les fichiers et finir le rebase
+  
+- git add (les fichier modifier)
+- git rebase --continue (finir le rebase avec les conflicts résolue)
+- git push --force (permet d'envoyer la version rebase master sans commit et la modification est prise dans la branch remote(dans git)).
