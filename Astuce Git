@@ -1,0 +1,20 @@
+- "git checkout -" ( = revenir à la branch précédente)
+
+  faire git status avant/après pour s'en rendre compte
+- git reset (enlève les git add dans la branch)
+
+- git diff 
+  permet de voir toutes les modifications effectuer dans la branch 
+  
+  Astuce sur les 2 lignes, cette étape permet d'ajouter tous les fichiers et d'enlever 1 fichier pratique quand il y en bcp de add par exemple 10 fichiers.
+- git add .
+- git reset unSeulFichier.php
+
+Astuce en Général 
+  Faire des git commit regroupé avant de push 
+  exemple :
+    - git add tousLesControllers
+    - git commit -m"feature: add controller"
+    - git add tousLesTests
+    - git commit -m"test: add test"
+    - git push
