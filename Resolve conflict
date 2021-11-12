@@ -1,7 +1,7 @@
 - git checkout master
 - git pull
 - git checkout - (= raccourcie pour revenir sur la branch précédente)
-- git rebase master
+- git rebase master (sa permet de mettre à jour la branch par rapport avec les données de master sans supprimer nos modifications. Peut créer des conflits)
 ************ Si conflict auto-merged failed *********
 Bien lire le reste pour bien comprendre les étapes à réaliser pour résoudre un conflit.
  Exemple :
